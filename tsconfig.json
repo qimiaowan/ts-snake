@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports":true,
+    "target": "esnext",
+    "esModuleInterop": true,
+    "declaration": false,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "src/*.ts"
+]
+}
