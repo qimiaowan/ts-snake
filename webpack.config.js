@@ -10,7 +10,8 @@ let config = {
   },
   output: {
     filename: "js/[name]-[contenthash].js",
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'imgs/[hash][ext][query]'
   },
   resolve: {
     extensions: ['.ts', '.js']
@@ -30,6 +31,10 @@ let config = {
 					]
 				},
         {
+          test: /\.(png|jpg|gif)$/i,
+          type: 'asset/resource'
+        },
+        {
           test: /\.css$/i,
             use: [
               {
@@ -45,7 +50,11 @@ let config = {
                 loader: 'postcss-loader'
               }
             ]      
-          },
+        },
+        {
+					test: /\.(htm|html)$/i,
+					use: ['html-withimg-loader']
+				},
     ]
   },
   
