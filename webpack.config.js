@@ -6,7 +6,7 @@ const dev = require('./webpack.dev')
 
 let config = {
   entry: {
-    "index": path.resolve(__dirname, 'src/index.ts')
+    "main": path.resolve(__dirname, 'src/main.ts')
   },
   output: {
     filename: "js/[name]-[contenthash].js",
