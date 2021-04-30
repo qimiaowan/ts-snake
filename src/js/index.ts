@@ -64,6 +64,7 @@ const move = (dir: string) => {
   if(!m) {
     return
   }
+
   clearInterval(timer)
   timer = setInterval(()=>{
     let prev = []
@@ -76,9 +77,9 @@ const move = (dir: string) => {
         // 碰撞检测
         const isCollision: Boolean | undefined = collision(pos)
         if(isCollision) {
-          alert("游戏结束，你输了")
-          clearInterval(timer)
-          init(space)
+          alert("呵呵， gg!")
+          clear()
+          return;
         }
         const isFood: Boolean | undefined = testFood(pos)
         if(isFood) {
@@ -100,13 +101,22 @@ const move = (dir: string) => {
   },200)
 }
 
+const clear = () => {
+  init(space)
+}
+
 // 碰撞检测
 const collision = (pos:number[]) => {
   const [x, y] = pos
   if(x < 0 || y < 0 || x >= w || y >= h) {
     return true
   }
-  return false
+  return snakeMap.some((item:any)=>{
+    const [name, _pos] = item
+    if(name !== "head") {
+      return x === _pos[0] && y === _pos[1]
+    }
+  })
 }
 
 // 检测是否吃到食物
@@ -126,6 +136,7 @@ const dirDown = (e) => {
 }
 
 const bind = () => {
+  document.removeEventListener('keydown', dirDown, false)
   document.addEventListener('keydown', dirDown, false)
 }
 
@@ -139,6 +150,7 @@ const snake = () => {
     }
     fram.appendChild(c)
   }
+  oSnake.innerHTML = ""
   oSnake.appendChild(fram)
 }
 
