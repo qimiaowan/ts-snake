@@ -1,4 +1,4 @@
-import { getStyle, setStyle } from "./utils"
+import { getStyle, setStyle } from "@js/utils"
 
 const oWrap: HTMLElement = document.querySelector("#wrap")
 const oFood: HTMLElement = document.querySelector(".food")

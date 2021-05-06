@@ -14,6 +14,9 @@ let config = {
     assetModuleFilename: 'imgs/[hash][ext][query]'
   },
   resolve: {
+    alias: {
+      '@js': path.resolve(__dirname, 'src/js')
+    },
     extensions: ['.ts', '.js']
   },
   module: {

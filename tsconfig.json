@@ -5,9 +5,14 @@
     "target": "esnext",
     "esModuleInterop": true,
     "declaration": false,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./", 
+    "paths": {
+      "@js/*": ["src/js/*"]
+    }
   },
   "include": [
-    "src/*.ts"
-  ]
+    "src/*.ts",
+    "src/type/*.d.ts",
+  ],
 }
